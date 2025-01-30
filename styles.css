@@ -169,6 +169,7 @@ body {
     }
 
     .btn-buy {
+      background: linear-gradient(to right, #ff4d4d, #ff7eb3);
       font-size: 1rem;
       padding: 12px 25px;
     }
@@ -379,6 +380,7 @@ body {
     }
   
     .btn-secondary {
+      background: linear-gradient(to right, #ff4d4d, #ff7eb3);
       font-size: 0.8rem;
       padding: 8px 15px;
     }
@@ -557,18 +559,21 @@ body {
 
 /* Sección Horario */
 .horario {
-  background: #ffffff;
-  padding: 40px 20px;
-}
-.horario h2 {
-  color: #D81B60;
-}
-.horario p {
-  font-size: 20px;
-  font-weight: bold;
-  color: #444;
+  text-align: center; /* Centra el texto horizontalmente */
+  display: flex;
+  justify-content: center; /* Centra el contenido en el eje horizontal */
+  align-items: center; /* Centra el contenido en el eje vertical */
+  height: auto; /* Ajusta la altura según el contenido */
+  padding: 20px 0; /* Espaciado arriba y abajo */
 }
 
+.horario .container {
+  max-width: 600px; /* Limita el ancho del contenido */
+  background-color: #f9f9f9; /* Color de fondo opcional */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
 /* Sección Ubicación */
 .ubicacion {
   background: #f1f1f1;
@@ -589,7 +594,7 @@ body {
 
 /* Suscripción Section Styles */
 .suscripcion {
-  background: linear-gradient(135deg, #ff4d4d, #ff7f7f);
+  background: linear-gradient(to right, #ff4d4d, #ff7eb3);
   padding: 3rem 1rem;
   color: white;
   text-align: center;
@@ -645,6 +650,7 @@ body {
 }
 
 .btn-primary-1 {
+  background: linear-gradient(to right, #ff4d4d, #ff7eb3);
   display: inline-block;
   padding: 0.8rem 1.5rem;
   background-color: #ff4d4d;

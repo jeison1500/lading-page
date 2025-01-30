@@ -16,24 +16,40 @@ document.addEventListener("DOMContentLoaded", function () {
  
  
  // Incremento dinámico del número de clientes
-   const countElement = document.getElementById('clientes-count');
-  let count = 0;
-  const target = 10000;
-  const increment = Math.ceil(target / 200); // Ajusta la velocidad del contador
+ document.addEventListener("DOMContentLoaded", function () {
+  let contadorIniciado = false;
 
-  const updateCount = () => {
-      count += increment;
-      if (count > target) {
-          count = target;
+  function iniciarContador() {
+      const elemento = document.getElementById("clientes-count");
+      const objetivo = 10000; // Número final del contador
+      const duracion = 2000; // Duración en milisegundos (2 segundos)
+      const intervalo = 30; // Cada cuánto tiempo aumenta el número (ms)
+
+      let incremento = Math.ceil(objetivo / (duracion / intervalo));
+      let valorActual = 0;
+
+      let animacion = setInterval(() => {
+          valorActual += incremento;
+          if (valorActual >= objetivo) {
+              elemento.textContent = objetivo.toLocaleString(); // Formato con comas
+              clearInterval(animacion);
+          } else {
+              elemento.textContent = valorActual.toLocaleString();
+          }
+      }, intervalo);
+  }
+
+  // Intersection Observer para detectar cuando el contador es visible
+  const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !contadorIniciado) {
+          iniciarContador();
+          contadorIniciado = true; // Evita que se reinicie la animación
       }
-      countElement.textContent = count.toLocaleString();
+  });
 
-      if (count < target) {
-          setTimeout(updateCount, 50); // Ajusta la velocidad
-      }
-  };
+  observer.observe(document.getElementById("clientes-count"));
+});
 
-  updateCount();
 
 
 
